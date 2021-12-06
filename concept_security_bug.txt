@@ -43,7 +43,8 @@ php 소스코드에서 파일이나 디렉토리 경로를 상대 경로로 사�
 경우에 시스템 명령어를 원격지에서 실행할 수 있는 버그를 의미한다.
 
 11. 스택 재킹
-리눅스 커널 해킹 기법 중 하나이다. ([3])
+리눅스 커널 해킹 기법 중 하나로 3단계 공격으로 구성된다. 이 공격은 커널 스택 메모리를 노출하거나 권한 객체를 덮어써서 루트쉘을 획득하는
+LPE가 가능하게 되는 버그 공격이다.
 
 [레퍼런스]
 1. 비초기화 메모리 버그 개념: https://www.blackhat.com/docs/eu-15/materials/eu-15-Chen-Hey-Man-Have-You-Forgotten-To-Initialize-Your-Memory-wp.pdf
