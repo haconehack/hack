@@ -25,3 +25,4 @@ php, asp, jsp 소스 코드가 SQL을 받아서 처리하는데, magic_quotes �
 
 [레퍼런스]
 1. 비초기화 메모리 버그 개념: https://www.blackhat.com/docs/eu-15/materials/eu-15-Chen-Hey-Man-Have-You-Forgotten-To-Initialize-Your-Memory-wp.pdf
+2. RCE 데모: https://www.youtube.com/watch?v=P_ZQKeXf-gM
