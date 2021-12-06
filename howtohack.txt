@@ -1,0 +1,187 @@
+
+*PRIVATE* *PRIVATE* *PRIVATE* *PRIVATE*
+---------------------------------------
+Title: Know-how to become a 1337 hacker
+Author: x90 <x90cx90c1 [at] gmail.com>
+Date: 2021.12
+---------------------------------------
+*PRIVATE* *PRIVATE* *PRIVATE* *PRIVATE
+
+
+--------------------------------
+ Table of Contents
+--------------------------------
+        1. Hacking
+        2. Hacking Stuffs
+        3. How to start hacking
+        4. 1337 hacking
+        5. Conclusion
+        6. References
+        7. x90 diary
+--------------------------------
+
+1. Hacking
+
+What is hacking? It's the sequence of abusing codes in insecure manner.
+You can compromise the target OS System as a server or client.
+ 
+2. Hacking Stuffs
+
+PoC, exploits, hacking tool, kernel rootkits, phishing site,
+and ransomware
+
+3. How to start hacking
+
+Hello- do you want to become a famous 1337 hacker in world hacker social
+and for done it, do you know how to do start for it??
+Ask yourself!
+
+Honestly, I say!~
+You need to understand the system to learn hacking firstly.
+You can remeber the concept of hacking. as this, 1) you can learn
+about the target programs. and 2) you can pose your hacking focus
+onto it.
+
+And So?? Try to Hack~!
+
+Find many- many- security problems as these vulnerabilties.
+
+And I give the question for how to working in the system inner side.
+
+[Q]
+- How to working the linux kernel?
+- How to working the SUID bit binaries of su, sudo, ping, pulseaudio?
+
+some noobs asked me like that 'how this program going to 
+my mean that how the inner process?'. i noticed the truth to learn hacking 
+funny and educational purpose, noob should be thinking like this
+way or style. have many curious and many hack tries to do as possible.
+
+have many curious about software inner working process.
+
+4. 1337 hacking
+
+1-1) Vulnerability Research to archive the analyze the program or program
+   source coddes technically after reading and reading for them. 
+   and should be security testing.
+   That I mean *source code auditing** and have to find CVE like security
+   bugs enough for you to spend times.
+   If you have many rest times to do this job then you can be a 
+   better researcher.
+
+   I've expriened in a security company as a researcher for 1 year.
+   in seoul city of korea. the hacker boss gave me the CVE link
+   and references to do reearch for the month. then i did research alone.
+   I was written 5 reports by using hwp word processor. 
+   CVE report is all boundary 15 pages. them was similar formation reports.
+   Somedays I made korean version exploits and tested. someday
+   I made -1day exploits. the hacker boss conguraturations for me and him.
+   he was likes to me.
+
+   If you want to study CVE and you also can the working in an company.
+   But If you want to learn research alone for an hobby then
+   It's not good comfortable. You need to do raw-research style.
+   with vim editor on linux. do source code auditing or reversing with
+   x86 or x64 assembly. two~
+
+1-2) Souce Code Auditing
+   If you want to pick the bugs via Source code auditing, First
+   You have to know 1) many security vulnerability concepts.
+   For example) buffer overflow, format string bug, race condition bug,
+   null pointer dref, uaf, sql injection, csrf, webshell upload, 
+   buffer overread, command injection, off-by-one, integer wrap-up, 
+   heap overflow, ... you can learn their concepts enough possible!
+
+   And 2) read target program's source codes written by C or php language.
+   You can easily find sql injection but hard to find buffer overflow and
+   like system bugs. but I expected to you to pick up some bad codes
+   in an source code directory. right? then let's try again to audit
+   source codes and for many auditing expriences.
+   If you tried to more and more with many exprienced, you will
+   found many bugs. and write CVE reports in vim editor.
+
+   Compile! and insert debug printf function calls to the source codes.
+   And testing and testing to know how this source code version is 
+   vulnerable! If you catch the bug then it's exploit writing time coming
+   up!~
+
+2) Exploit Writing
+   If you found a security bug then you have to write the exploit code
+   by C or python. exploit worked step by step and the all steps are
+   made the target OS *information leak* or *Priv-esc* impact.
+   It's hard job to the source code auditing.
+   If you have good dude if he is exprienced to write exploits.
+   Say to him to help your last job he may help you to successfully
+   complete of the working.
+   
+   If you want to write your own exploits you need to know how to code
+   the exploits. socket programming, shm programming, forking, threading,
+   ioctl, and so on. Learn from basic of syntax and advanced codings.
+
+   Hey~ I Just thought the 1337 should know about the code*
+
+3) Make Hacking Tools
+   awesome~!
+
+5. Conclusion
+
+In this technical paper, I explained the way to become a 1337 hacker.
+Hacker could become a famous 1337 If he did very good at technical hacking.
+...and read, write codes exactly and carefully.
+
+Practice Hack again and study and Practice continuly.
+You can do it as well.
+Don't forget You are a hacker. And study!
+
+6. References
+
+[1] SecurityHacker: https://en.wikipedia.org/wiki/Security_hacker
+    haha newbie is same with noob.
+    i'm elite hacker. no blackhat and whitehat. i'm greyhat.
+
+
+x90
+
+7. x90 Diary
+
+2021.12.05:
+ I am writing this technical paper for my advance. not so many words
+ But it's an explorer that what the elite hacker's hacking is.....
+ No more contents?? hmm.. 
+
+ From now, I think so that Hard code to easy level understand study is 
+ important.
+
+ Eat watermelon and get a fun for hack.
+ I will going to buy watermelon on today sunny.
+ I've ate watermelon some pieces.
+ It's so cool.
+
+2021.12.06:
+ I ate watermelon and want to learn hack.
+ I don't catch what hack starting from to learn 1337 hacking?????
+ !!!!!
+ And so... thinking of it.
+ I search the subject what hacking to get strart then it's the answer
+ >> your interesting hacking is the answer.
+ heh.
+ right. the hacker also told me like that.
+ see freebsd's vfs related parts.
+ then more interested.
+ But i'm not interested the freebsd's vfs. i didn't read the part.
+ 
+ => Fun hacking subject is good study subject one.
+    Study and write report for the subject detail.
+    And enjoy hackz!
+ => Haha. really you think of the hacking fun?? it's the needed part.
+    And You need high profit then start hacking in easy level.
+ => Q) I saw the exploit-db.com site's database, I am not interested
+    In not major program vulnereabilty... and no many major programs
+    bugs are publicly disclosed. and i'm loosed from this truth.
+    Okay.
+    => I don't like minor bugs.
+    If an major bug is disclosed then i will make the github repository
+    to research about many things related on it.
+    It will be fun!
+ => study more and more deep. and find vulnerability for the system.
+    You can also be as an jailbrekerz.
