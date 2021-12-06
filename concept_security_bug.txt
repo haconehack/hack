@@ -27,7 +27,9 @@ php, asp, jsp 소스 코드가 SQL을 받아서 처리하는데, magic_quotes �
 인증이 없이 관리자 매뉴의 기능이 동작하는 경우를 말하는데, 사용자가 인증을 우회해서 관리자 php 페이지로 관리자 기능을 처리할 수 있는
 CSRF와 유사한 버그를 말한다.
 
-
+7. 비초기화 메모리 버그
+포인터로 동작하는 int나 char 버퍼가 초기화되지 않은 체로 사용되는 경우 해당 메모리 영역이 참조되는 경우에 익스플로잇테이젼 기법을 통해서
+쉘코드를 실행할 수 있는 버그를 말한다. ([1])
 
 [레퍼런스]
 1. 비초기화 메모리 버그 개념: https://www.blackhat.com/docs/eu-15/materials/eu-15-Chen-Hey-Man-Have-You-Forgotten-To-Initialize-Your-Memory-wp.pdf
