@@ -1,0 +1,54 @@
+2. CWE-193: Off-by-one 오류
+
+https://cwe.mitre.org/data/definitions/193.html
+
+--
+char firstname[20];
+char lastname[20];
+char fullname[40];
+
+fullname[0] = '\0';
+
+strncat(fullname, firstname, 20);
+strncat(fullname, lastname, 20);
+--
+
+strncat() 함수를 쓸때, 널터미네이터 문자를 free바이트로 넣어야 한다.
+따라서 off-by-one이 20+20바이트를 이어서 붙여서 만드는데서 발생할 수 있다.
+1바이트 넘어 쓰는 strncat() 호출이 두 번째 호출에서 발생한다.
+안전한 코드는 아래와 같이 쓸 수 있다.
+
+--
+strncat(fullname, firstname, sizeof(fullname)-strlen(fullname)-1);
+strncat(fullname, firstname, sizeof(fullname)-strlen(fullname)-1);
+--
+
+
+--
+#define PATH_SIZE 60 // 60바이트
+
+char filename[PATH_SIZE]; // filename 60(0~59)바이트 문자열 버퍼.
+
+// 0~60 ( 61바이트 )를 c 문자 변수에 입력 받음.
+for(i=0; i<=PATH_SIZE; i++) {
+char c = getc();
+if (c == 'EOF') {
+filename[i] = '\0';
+}
+
+filename[i] = getc(); // off-by-one 발생.
+}
+--
+
+--
+// setFilename() 함수에서 filename 문자열 인자를 받음.
+int setFilename(char *filename) {
+char name[20]; // 20바이트 문자열 버퍼 name.
+
+// 16바이트+4바이트(".dat")해서 20바이트이기 때문에 off-by-one이 발생합니다.
+sprintf(name, "%16s.dat", filename);
+int success = saveFormattedFilenameToDB(name);
+return success;
+}
+--
+
