@@ -46,6 +46,11 @@ php 소스코드에서 파일이나 디렉토리 경로를 상대 경로로 사�
 리눅스 커널 해킹 기법 중 하나로 3단계 공격으로 구성된다. 이 공격은 커널 스택 메모리를 노출하거나 권한 객체를 덮어써서 루트쉘을 획득하는
 LPE가 가능하게 되는 버그 공격이다.
 
+12. ioctl 버그
+ioctl은 유저랜드의 사용자가 커널랜드의 커널 드라이버나 모듈 또는 커널 코드에 서비스를 요청하는 경우에 데이터를 전송하고 주고받기 위해
+ioctl 명령어와 함께 동작시키는 것을 의미하는데, 이 ioctl()의 명령어를 처리하는 버퍼가 적절하게 검증되지 않는 경우에 버퍼 오버플로나
+커널 메모리 공격이 가능한 취약점이나, 권한 남용 버그가 발생할 수 있는데, 이것을 ioctl버그라 한다.
+
 [레퍼런스]
 1. 비초기화 메모리 버그 개념: https://www.blackhat.com/docs/eu-15/materials/eu-15-Chen-Hey-Man-Have-You-Forgotten-To-Initialize-Your-Memory-wp.pdf
 2. RCE 데모: https://www.youtube.com/watch?v=P_ZQKeXf-gM
