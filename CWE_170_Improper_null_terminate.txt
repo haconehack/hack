@@ -1,0 +1,25 @@
+3. CWE-170: 부적절한 널 종단자
+
+--
+#define MAXLEN 1024
+...
+char *pathbuf[MAXLEN];
+...
+read(cfgfile,inputbuf,MAXLEN); // 널 종단자가 없음.
+strcpy(pathbuf,inputbuf); // 입력에 널 종단자가 필요함.
+...
+--
+strcpy()에서 버퍼 오버플로우가 발생할 수 있다.
+
+--
+char buf[MAXPATH];
+...
+readlink(pathname, buf, MAXPATH);
+int length = strlen(buf);
+...
+--
+
+readlink()가 MAXPATH 만큼 읽어들이고 멈추는데, buf에 널 바이트가 없어서, 오버플로가
+발생할 수 있고, buf의 length를 정하는 것은 문제가 없이 취약점이 발생할 조건을 만든다.
+
+
