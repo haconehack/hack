@@ -1,1 +1,22 @@
 https://cwe.mitre.org/data/definitions/119.html
+
+4. CWE-119: 메모리 버퍼 경계에 대한 부적절 명령어 제한 버그
+
+--
+void host_lookup(char *user_supplied_addr){
+struct hostent *hp;
+in_addr_t *addr;
+char hostname[64];
+in_addr_t inet_addr(const char *cp);
+
+/*routine that ensures user_supplied_addr is in the right format for conversion */
+
+validate_addr_form(user_supplied_addr);
+addr = inet_addr(user_supplied_addr);
+hp = gethostbyaddr( addr, sizeof(struct in_addr), AF_INET);
+strcpy(hostname, hp->h_name);
+}
+--
+strcpy() 함수로 hostname 64바이트에 복사하는 hp->h_name은 char * 타입이고
+gethostbyaddr()에 의해 더 큰 바이트가 복사될 수 있어서 버퍼 오버플로우가 발생하는 취약점 코드이다.
+
