@@ -59,6 +59,11 @@ ioctl 명령어와 함께 동작시키는 것을 의미하는데, 이 ioctl()의
 힙 오버플로의 일종의 힙 헤더 정보를 덮어씌워지는 경우 힙 헤더와 청크를 설정해서 임의 주소 4바이트에 4바이트 원하는 값을 덮어쓰기 할 수 있는
 버그를 말한다. CWE-123
 
+15. LFI / RFI
+Local File Inclusion vs Remote File Inclusion이라는 php 보안 버그인데, 이 include() require() 두 함수로 인자를 넘겨받아 php 코드를 
+사용자에게 맡기는 경우에, 로컬 시스템 상에 있는 php 코드를 실행하는 LFI와 http://로 시작하는 원격지 서버에 있는 php를 포함해서 실행하도록
+동작시키는 RFI로 나뉘는 커플인 두 버그입니다.
+
 [Common Weakness Enumeration 버그 컨셉 정리] 
 ([4])
 
