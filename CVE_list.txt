@@ -70,7 +70,6 @@ buffer overflow involving a regular expression with a large number of captures
 CVE-2017-1000121
 chain: unchecked message size metadata allows integer overflow (CWE-190) leading to buffer overflow (CWE-119).
 체인: 검증안된 메시지 크기의 메타데이터가 정수 오버플로우 (CWE-190)을 일으켜서 버퍼 오버플로우 (CWE-119)를 유도한다.
-
 WebkitGTK+ 2.16.3 이전 버전가지 Webkit의 UNIX IPC 레이어에서 취약점이 발생해서 버퍼 오버플로우가 UI 처리에서 발생한다.
 애플 제품은 영향을 받지 않는다.
 
