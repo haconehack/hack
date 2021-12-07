@@ -60,4 +60,4 @@ ioctl 명령어와 함께 동작시키는 것을 의미하는데, 이 ioctl()의
 2. RCE 데모: https://www.youtube.com/watch?v=P_ZQKeXf-gM
 3. StackJacking: https://jon.oberheide.org/files/summercon11-stackjacking.pdf
 4. CWE: https://cwe.mitre.org/data/definitions/1000.html
-5. CWE TOP 25: https://www.sans.org/top25-software-errors/
+5. CWE TOP 25: https://cwe.mitre.org/top25/archive/2021/2021_cwe_top25.html
