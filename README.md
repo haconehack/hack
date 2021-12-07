@@ -7,6 +7,7 @@
 
 [약력]
 - 와우 코드 출신 연구원 (해커)
+- 정보보호 전공 (해커)
 - isec.pl 책임 연구원 (해커)
 - format string bug 최초 공격 코드 공개자 (freebsd.zolo) (해커)
 
@@ -17,8 +18,10 @@ Pray for me! thanks!
 
 [History of job]
 - from a member of wowcode team of south korea.
+- Information Security Major (in school)
 - isec.pl responsibility hacker (main researcher).
 - format string bug attack initial exploit publisher hacker (researcher)
+
 
 I'm 5 more years an hacker exploited.
 pwn pwn!
