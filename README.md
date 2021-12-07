@@ -18,7 +18,7 @@ Pray for me! thanks!
 [History of job]
 - a member of wowcode team from south korea.
 - isec.pl responsibility hacker (main researcher).
-- format string bug attack initialize exploit publisher hacker (researcher)
+- format string bug attack initial exploit publisher hacker (researcher)
 
 I'm 5 more years an hacker exploited.
 pwn pwn!
