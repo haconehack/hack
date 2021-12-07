@@ -5,12 +5,15 @@
 CVE-2009-2550
 Classic stack-based buffer overflow in media player using a long entry in a playlist
 고전 스택-기반 버퍼 오버플로우가 미디어 재생기의 긴 길이 엔트리 재생목록에서 발생한다.
+스택-기반 오버플로우인데 hAMSTER 오디오 재생기 0.3A 버전이 원격지 공격자들에게 긴 길이의 (1) .m3u 또는
+.hpl 재생목록 파일을 통해서 임의 코드 실행이 가능하도록 허용한다.
 
 CVE-2009-2403
 Heap-based buffer overflow in media player using a long entry in a playlist
 힙-기반 버퍼 오버플로우가 미디어 재생기의 긴 길이 엔트리가 재생목록에서 발생한다.
+SCMPX 1.5.1의 취약점으로 긴 길이의 .m4u 재생목록을 통해 힙-기반 버퍼 오버플로우가 발생한다.
 
-CVE-2009-0689
+CVE-2009-0689 ( still )
 large precision value in a format string triggers overflow
 큰 부동소수점 값이 포맷 스트링으로 오버플로우를 발생시킨다.
 
