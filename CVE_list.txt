@@ -28,23 +28,44 @@ chain: lack of synchronization leads to memory corruption
 
 CVE-2021-29529
 Chain: machine-learning product can have a heap-based buffer overflow (CWE-122) when some integer-oriented bounds are calculated by using ceiling() and floor() on floating point values (CWE-1339)
+체인: 머신-러닝 제품은 힙-기반 버퍼 오버플로우 (CWE-122)가 정수-지향 바운스 일부가 ceiling()으로 계산될 때, 그리고 floor()로 소수점 포인터 값이 (CWE-1339)
+계산될 때 발생한다.
+
 CVE-2009-0558
 attacker-controlled array index leads to code execution
+공격자-제어 배열 인덱스가 코드 실행을 유도한다.
+
 CVE-2009-0269
 chain: -1 value from a function call was intended to indicate an error, but is used as an array index instead.
+체인: 함수 호출로부터 -1 값이 할당(indicate) 오류를 잠재적으로 발생하게 되는데, 하지만 이것은 배열 인덱스에 먼저 사용된다.
+
 CVE-2009-0566
 chain: incorrect calculations lead to incorrect pointer dereference and memory corruption
+체인: 부적절한 계산들이 부적절한 포인터 참조와 메모리 커럽션을 발생시킨다.
+
 CVE-2009-1350
 product accepts crafted messages that lead to a dereference of an arbitrary pointer
+제품이 조작된 메시지들을 허용해서 임의 포인터 참조에 이른다.
+
 CVE-2009-0191
 chain: malformed input causes dereference of uninitialized memory
+체인: 악의적 입력이 비초기화 메모리를 참조할 수 있다.
+
 CVE-2008-4113
 OS kernel trusts userland-supplied length value, allowing reading of sensitive information
+OS 커널은 유저랜드-입력 값을 신뢰하고, 이것은 민감한 정보의 읽기를 허용한다.
+
 CVE-2005-1513
 Chain: integer overflow in securely-coded mail program leads to buffer overflow. In 2005, this was regarded as unrealistic to exploit, but in 2020, it was rediscovered to be easier to exploit due to evolutions of the technology.
+체인: 정수 오버플로우가 보안-코드된 메일 프로그램에 있어서 버퍼 오버플로우를 발생시킨다. 2005년, 이 버그는 실제적으로 익스플로잇되지 않을 듯 했지만,
+2020년 익스플로잇이 가능하고 기술상 진화하는 것으로 다시 밝혀졌다.
+
 CVE-2003-0542
 buffer overflow involving a regular expression with a large number of captures
+버퍼 오버플로우가 정규 표현식에 캡쳐된 큰 값으로 결합되어 나타난다.
+
 CVE-2017-1000121
 chain: unchecked message size metadata allows integer overflow (CWE-190) leading to buffer overflow (CWE-119).
+체인: 검증안된 메시지 크기의 메타데이터가 정수 오버플로우 (CWE-190)을 일으켜서 버퍼 오버플로우 (CWE-119)를 유도한다.
 
 
