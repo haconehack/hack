@@ -4,16 +4,28 @@
 
 CVE-2009-2550
 Classic stack-based buffer overflow in media player using a long entry in a playlist
+고전 스택-기반 버퍼 오버플로우가 미디어 재생기의 긴 길이 엔트리 재생목록에서 발생한다.
+
 CVE-2009-2403
 Heap-based buffer overflow in media player using a long entry in a playlist
+힙-기반 버퍼 오버플로우가 미디어 재생기의 긴 길이 엔트리가 재생목록에서 발생한다.
+
 CVE-2009-0689
 large precision value in a format string triggers overflow
+큰 부동소수점 값이 포맷 스트링으로 오버플로우를 발생시킨다.
+
 CVE-2009-0690
 negative offset value leads to out-of-bounds read
+음수 오프셋 값이 out-of-bounds 읽기를 유도한다.
+
 CVE-2009-1532
 malformed inputs cause accesses of uninitialized or previously-deleted objects, leading to memory corruption
+악의적 입력들이 비초기화나 이전에-삭제된 객체에 접근이 허가되어서, 메모리 커럽션을 발생시킨다.
+
 CVE-2009-1528
 chain: lack of synchronization leads to memory corruption
+체인: 동기화 결여로 메모리 커럽션 발생.
+
 CVE-2021-29529
 Chain: machine-learning product can have a heap-based buffer overflow (CWE-122) when some integer-oriented bounds are calculated by using ceiling() and floor() on floating point values (CWE-1339)
 CVE-2009-0558
