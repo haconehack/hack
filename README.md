@@ -11,7 +11,7 @@
 - isec.pl 책임 연구원 (해커)
 - format string bug 최초 공격 코드 공개자 (freebsd.zolo) (해커)
 
-Hello- I am a 1337 hacker a.k.a x90.<br>
+Hello- I am a korean 1337 hacker a.k.a x90.<br>
 I will studied and research many things for source code auditing result.<br>
 And to become a hacker whom professional for source code auditing.<br>
 Pray for me! thanks!
