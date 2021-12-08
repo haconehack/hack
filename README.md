@@ -17,7 +17,7 @@ And to become a hacker whom professional for source code auditing.<br>
 Pray for me! thanks!
 
 [History of job]
-- from a member of wowcode team of south korea.
+- from a member researcher of wowcode team of south korea.
 - Information Security Major (in school)
 - isec.pl responsibility hacker (main researcher).
 - format string bug attack initial exploit publisher hacker (researcher)
