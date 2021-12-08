@@ -6,10 +6,10 @@
 잘부탁드립니다.
 
 [약력]
-- 와우 코드 출신 연구원 (해커)
-- 정보보호 전공 (해커)
-- isec.pl 책임 연구원 (해커)
-- format string bug 최초 공격 코드 공개자 (freebsd.zolo) (해커)
+- 2001: 와우 코드 출신 연구원 (해커)
+- 2005: 정보보호 전공 (해커)
+- 2003~2006: isec.pl 책임 연구원 (해커)
+- 1999: format string bug 최초 공격 코드 공개자 (freebsd.zolo) (해커)
 
 Hello- I am a security professional from korea (famous 1337 hacker) a.k.a x90.<br>
 I will studied and research many things for source code auditing result.<br>
