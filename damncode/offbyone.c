@@ -1,3 +1,5 @@
+// reference one: https://csl.com.co/en/off-by-one-explained/
+
 int main(int argc, char *argv[])
 {
   char obuf[32];
