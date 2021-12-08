@@ -1,9 +1,9 @@
 int main(int argc, char *argv[])
 {
-  char obuf[20];
+  char obuf[32];
   
-  // 16+4(.log) = 20 then no null terminate next calling function can be off-by-one bug.
-  sprintf(obuf, "%16s.log", argv[1]);
+  // 32bytes copied then it's not contains a null terminate than off-by-one could be occured.
+  strncpy(obuf, argv[1], sizeof(obuf));
   
   // bug(obug);
   // could be occred a bug.
