@@ -15,9 +15,9 @@ char *alloca(int alloc_len)
 int main(int argc, char **argv)
 {
   // allocation size is from usersupplied value and it could be 0~1024.
-  char damnvulnpointer = alloca(atoi(argv[1]));
+  char *damnvulnpointer = alloca(atoi(argv[1]));
   
-  // no bounds checking.
+  // no bounds checking to occur heap overflow.
   strcpy(damnvulnpointer, argv[2]);
   
   return 0;
