@@ -10,6 +10,7 @@
 - 2003~2006: isec.pl 책임 연구원 (해커)
 - 2001: 와우 코드 출신 연구원 (해커)
 - 1999: format string bug 최초 공격 코드 공개자 (freebsd.zolo) (해커)
+- 1993~1997: 연예인 기획사 운영 (부산 소재)
 
 Hello- I am a security professional from korea (famous 1337 hacker) a.k.a x90.<br>
 I will studied and research many things for source code auditing result.<br>
@@ -21,7 +22,7 @@ Pray for me! thanks!
 - 2003~2006: isec.pl responsibility hacker (main researcher).
 - 2001: from a member hacker of wowcode team of south korea.
 - 1999: format string bug attack initial exploit publisher hacker (researcher)
-
+- 1993~1997: Celeberity Company CEO (Busan in south korea)
 
 I'm 5 more years an hacker exploited.
 pwn pwn!
