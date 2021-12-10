@@ -74,3 +74,4 @@ Local File Inclusion vs Remote File Inclusion이라는 php 보안 버그인데, 
 3. StackJacking: https://jon.oberheide.org/files/summercon11-stackjacking.pdf
 4. CWE: https://cwe.mitre.org/data/definitions/1000.html
 5. CWE TOP 25: https://cwe.mitre.org/top25/archive/2021/2021_cwe_top25.html
+6. 취약점 예제 코드와 보안 코딩: https://blog.naver.com/neos_rtos/220164190569
