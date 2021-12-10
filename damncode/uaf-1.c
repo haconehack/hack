@@ -41,10 +41,14 @@ int main(int argc, char *argv[])
 		vuln->clean(vuln);
 	}
 
+	// vulnerable point: vuln_tst allocated by 170 bytes and copied the argv[1] into it.
 	vuln_tst = malloc(170);
-	sstrcpy(vuln_tst, argv[1]);
+	// heap overflow and overwrite vuln->clean function pointer by hacksure function address. (exploit way)
+	strcpy(vuln_tst, argv[1]);
 
+	// vuln_tst freed.
 	free(vuln_tst);
+	// overwrite'd function called. and run("/bin/sh"); haha fun! it's easy.
 	vuln->clean(vuln);
 
 	return 0;
