@@ -1,0 +1,6 @@
+
+[레퍼런스]
+- https://cwe.mitre.org/data/definitions/789.html
+
+CWE-789에 strchr() 씨언어 함수 잘못 계산되는 버그에 대한 취약 코드와 보안 코드가 있네요.
+보안 코드를 보면서 해당 버그에 대해서 이해해보도록 합시다.
