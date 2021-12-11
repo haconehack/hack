@@ -185,3 +185,10 @@ x90
     It will be fun!
  => study more and more deep. and find vulnerability for the system.
     You can also be as an jailbrekerz.
+
+2021.12.12:
+  I'm thinking of Single Vulnerability Research report writing.
+  No many resource then no many knowldges but it will be grows onto many resource.
+  Then I can hack many programs by using the knowldges.
+  Thanks.
+  
