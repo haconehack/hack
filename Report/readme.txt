@@ -6,8 +6,8 @@ Thanks a lot of following to reading this.
 보낼거 같네요.
 힘차게 나아가볼 견해입니다만.
 The word of Vulnerability called like the security bug. I also like the words very well.
-And continue to Security Bug research and I will be written in my author name on many research public and
-private. I will be an happy researcher! thanks.
+And continue to Security Bug research and I will be written many research public and private within my author name
+I will be an happy researcher! thanks.
 
 Security Researcher Hacker x90
 [정경주]
