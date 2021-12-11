@@ -5,7 +5,7 @@ Thanks a lot of following to reading this.
 보안 버그를 찾는 연구를 계속해서 보안 전문가로써 이름을 남기기 위해서 앞으로 많은 날들을 보람차게
 보낼거 같네요.
 힘차게 나아가볼 견해입니다만.
-The word of Vulnerability called like the security bug. I also like the words very well.
+The word of Vulnerability called like 'the security bug'. I also like the word very well.
 And continue to Security Bug research and I will be written many research public and private within my author name
 I will be an happy researcher! thanks.
 
