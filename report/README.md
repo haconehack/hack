@@ -1,1 +1,0 @@
-Vulnerabilty Research.
