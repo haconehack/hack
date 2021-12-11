@@ -14,7 +14,7 @@
 
 Hello- I am a security professional from korea (famous 1337 hacker) a.k.a x90.<br>
 I will studied and research many things for source code auditing result.<br>
-And to become a researcher whom professional for source code auditing.<br>
+And to become a hacker whom professional for source code auditing.<br>
 Pray for me! thanks!
 
 [History of job]
