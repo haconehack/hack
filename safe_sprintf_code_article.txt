@@ -1,0 +1,87 @@
+
+--
+Subject: Safe sprintf of C
+Author: x90 <x90cx90c1 [at] gmail.com>, RealName: KyongJu, Jung
+Date: 2021.12
+--
+
+1. Insecure Code
+
+  strcpy and gets easily vulnerable for the stack based buffer overflow.
+  and hacker and programmers used sprintf and snprintf function for C language.
+  but sometimes sprintf can be vulnerable for the string copy and it
+  occured as a strcpy variation effect.
+  as you know below function call is same.
+
+  --8>--8>--8>--8>--8>--
+  int main(int argc, char **argv)
+  {
+  char buf[32];
+
+  strcpy(buf, argv[1]);
+  }  
+  --8>--8>--8>--8>--8>--
+
+  --8>--8>--8>--8>--8>--
+  ...
+  // it's buffer overflow by sprintf function without bounds-checking routine.
+  sprintf(buf, "long buffer is vulnerable.%s%s", argv[1], argv[2]);
+  --8>--8>--8>--8>--8>--
+
+  then snprintf function...
+
+  --8>--8>--8>--8>--8>--  
+  int j = snprintf(buf, atoi(argv[1]), "%s\n", argv[2]);
+  --8>--8>--8>--8>--8>--
+
+  above code's second argument is copy length ... but it's can be
+  user-controlled. and ./program 150 "AAA...." then it's buffer overflow.
+  also mis coded length will be pron to vulnerable codes.
+
+2. Secure sprintf function calling
+
+  2.1 bound-checking method
+  --8>--8>--8>--8>--8>--
+  ...
+  char buf[128];
+  int clen = 26 + strlen(argv[1]) + strlen(argv[2]);
+
+  memset(buf, 0x0, 128);
+
+  // first way to the secure coding by add bounds-checking before sprintf.
+  if((clen >= sizeof(buf) || clen < 0) 
+  {
+    fprintf(stderr, "error to be occured!\n");
+    return(-1);
+  }
+
+  sprintf(buf, "long buffer is vulnerable.%s%s", argv[1], argv[2]);
+  --8>--8>--8>--8>--8>--
+
+  2.2 format check method
+
+  --8>--8>--8>--8>--8>--
+  ...
+  char buf[128];
+
+  memset(buf, 0x0, 128);
+
+  // it's written 26+50+50(-2)=124 bytes into 128 buffer stack variable.
+  // secure coding. second coding way!
+  sprintf(buf, "long buffer is vulnerable.%50s%50s", argv[1], argv[2]);
+  --8>--8>--8>--8>--8>--
+
+
+
+3. Conclusion
+
+  Secure Coding is very important for hackers to learn many source code
+  auditing and researcher can easily learn because the white papers are
+  good guide for the auditing.
+
+  I showed youth a sample example in this article.
+  thanks.
+
+  Hack the planet!
+
+Greetings all researchers.
