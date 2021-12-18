@@ -1,0 +1,340 @@
+
+--
+Subject: Insecure sprintf of C
+Author: x90 <x90cx90c1 [at] gmail.com>, RealName: KyongJu, Jung
+Date: 2021.12
+--
+
+
+[TOC]
+
+--------------------------------------------------------
+1. Insecure Code
+  1.1 strcpy, sprintf, snprintf Insecure Code examples
+  1.2 reversing the string copy routine
+2. Secure sprintf function calling
+  2.1 bound-checking method
+  2.2 format checking method
+  2.3 length checking method
+  2.4 snprintf function use
+3. Code
+4. Future Research
+5. Conclusion
+--------------------------------------------------------
+
+Hello~ I'm a.k.a x90, a security researcher from south korea.
+
+I decided to become a security researcher that specializes in  
+source code auditing, and so, I'm starting my research from today.
+In 17th of December ~ 2022, I will try to overcome the hurdle to 
+research sky high road to point out the security bugs.
+At least, more undermining or understanding of the pron bugs and
+security bugs. Many thanks to all readers :-).
+
+
+1. Insecure Code
+
+  1.1 strcpy, sprintf, snprintf Insecure Code examples
+
+  strcpy() and gets() are easily vulnerable for the stack based
+  buffer overflow. Hackers and programmers use sprintf and 
+  snprintf function for C programming. But sometimes sprintf can be 
+  vulnerable against string copy, and it occured as a strcpy variation 
+  effect. As you know below function call is same.
+
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // strcpy() buffer overflow.
+  int main(int argc, char **argv)
+  {
+  char buf[32];
+
+  strcpy(buf, argv[1]);
+  }  
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // sprintf() buffer overflow.
+  ...
+  // it's buffer overflow by sprintf function without bounds-checking routine.
+  sprintf(buf, "long buffer is vulnerable.%s%s", argv[1], argv[2]);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  |snprintf function|
+
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
+  unsigned int buflen = atoi(argv[1]);
+  unsigned char buf[buflen];
+  int j = 0;
+
+  j = snprintf(buf, buflen, "%s\n", argv[2]);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  above code's second argument is copy length ... but as you can see, 
+  it's user-controlled. and ./program 150 "AAA...." then it's buffer 
+  overflow. also mis coded length will be pron to vulnerable codes.
+
+  1.2 reversing the string copy routine
+    If you want to find in buffer overflow in '%s' format in sprintf
+    (1) find sprintf calls (2) check no-bounds check or vulnerable
+    (3) if youth could found a bug then writing a PoC.
+
+
+2. Secure sprintf function calling
+
+  2.1 bound-checking method
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ...
+  char buf[128];
+  int clen = 26 + strlen(argv[1]) + strlen(argv[2]);
+
+  memset(buf, 0x0, 128);
+
+  /*
+     First way to the secure the code is by adding bounds-checking before sprintf.
+     if clen is size_t(unsigned int) type then no needs 'clen < 0' checking.
+   */
+  if((clen >= sizeof(buf) || clen < 0) 
+  {
+    fprintf(stderr, "error to be occured!\n");
+    return(-1);
+  }
+
+  sprintf(buf, "long buffer is vulnerable.%s%s", argv[1], argv[2]);
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  2.2 format checking method
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ...
+  char buf[128];
+
+  memset(buf, 0x0, 128);
+
+  /*
+     it's written 26+50+50(-2)=124 bytes into 128 buffer stack variable.
+     secure coding. second coding way!
+   */
+  sprintf(buf, "long buffer is vulnerable.%50s%50s", argv[1], argv[2]);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  2.3 length checking method
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  size_t buflen = snprintf(0, 0, "%s", message);
+  char *buf = malloc(buflen) + 1;
+
+  memset(buf, 0x0, sizeof(buflen) + 1);
+
+  if(buf)
+  {
+    sprintf(buf, "%s", message);
+
+    buf[buflen] = '\x00';
+    // code here ...
+  }
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+  2.4 snprintf function use
+
+  snprintf function gives us  length check-copy string to dest char *.
+  many researchers use snprintf and sprintf... same effect what is good 
+  either.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+  char buf[32];
+
+  // only buf sizeof length char * copying! (very simple code)
+  snprintf(buf, sizeof(buf), "%s", argv[1]);   
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+3. Code
+
+I code a check-sc.c for the program for search vulnerable snprintf codes.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Pseudo-Code #1:
+   /*
+    * (1) abuf = readlinea()
+    * (2) find "sprintf("
+    * (3) if((strstr(abuf, ", ") + 2) != '[0~9]') ||
+    *        ((strstr(abuf, ",") + 1) != ' ') && 
+    *          strstr(abuf, "," + 1) == '[0~9]')) then
+   */ (4) print weak code found.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+// check-sc.c
+
+C #2:
+
+#include <stdio.h>
+
+/*
+ * [x90@x90hack]-[~/check-sc]
+>>> ./check-sc testcase.c.txt 11
+1:
+2: // argv1 == vuln length
+3: // argv2 == overflow payload
+4: int main(int argc, char *argv[]])
+5: {
+6:
+7: char buf[32];
+8:
+9: snprintf(buf, 32, "%s\n", argv[2]);
+10: snprintf(buf, sizeof(buf)-1, "%s\n", argv[2]);
+11: snprintf(buf, atoi(argv[1]), "%s\n", argv[2]);
+weak code found!
+[x90@x90hack]-[~/check-sc]
+>>>
+*/
+int klen;
+int stop_pr;
+
+char *readlinea(char *orig)
+{
+  int i = 0;
+  char *buf;
+
+   buf = malloc(128);
+
+  memset(buf, 0x0, sizeof(buf));
+
+  for(i = 0; i < 128; i++)
+  {
+    if(orig[i] == '\n')
+      break;
+
+      buf[i] = orig[i];
+  }
+
+  klen = strlen(buf);
+
+  if(buf[i] == '\n')
+    stop_pr = 1;
+
+  return(buf);
+}
+
+int lookup_codesnip(char *orig)
+{
+  if(strstr(orig, "snprintf(") != NULL){
+    // printf("snprintf found!!\n");
+    return(1);
+  }
+
+  return(0);
+}
+
+char *token_test(char *orig)
+{
+  char *ptr = strstr(orig, ", ");
+  char *ptr1 = strstr(orig, ",");
+  char *ascii = "0123456789";
+  int i = 0;
+
+  ptr += 2;
+  ptr1 += 1;
+
+  for(i = 0; i < sizeof(ascii); i++)
+  {
+    if(ptr[0] == ascii[i] || ptr1[0] == ascii[i])
+      return(1);
+  }
+
+  return 0;
+}
+
+int token_test2(char *orig)
+{
+  if(strstr(orig, "sizeof(") != NULL)
+  {
+    return(1);
+  }
+
+  return(0);
+}
+
+int main(int argc, char *argv[])
+{
+  FILE *fp;
+  char *pp;
+  char *orig_pp;
+  char *ptr;
+  int i = 0;
+  int lena = 0;
+  char *ptr1 = NULL;
+  int tret = 0, tret2 = 0;
+  unsigned int wanted_lc = atoi(argv[2]);
+
+  // x90:: if you want to know the line count then below command...
+  // $ lc -c [source code filename]
+
+  if(wanted_lc <= 0 || wanted_lc >= 10000)
+  {
+    fprintf(stderr, "error malloc'd() to failed\n");
+    return(-1);
+  }
+
+  pp = malloc(128*wanted_lc);
+
+  orig_pp = pp;
+
+  fp = fopen(argv[1], "r");
+
+  fread(pp, 128, 10000, fp);
+
+  ptr = readlinea(pp);
+  printf("1: %s\n", ptr);
+
+for(i = 1; i < wanted_lc; i++)
+{
+  pp = pp + klen + 1;
+  ptr = readlinea(pp);
+  if(stop_pr != 1)
+  {
+    printf("%d: %s\n", i+1, ptr);
+  }
+
+  if(lookup_codesnip(ptr) == 1)
+  {
+    tret = token_test(ptr);
+    tret2 = token_test2(ptr);
+
+    if(tret == 0 && tret2 == 0)
+    {
+      printf("weak code found!\n");
+    }
+  }
+}
+
+}
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+4. Future Research
+
+   Many other C and php functions are vulnerable to source code auditing
+   in Automatically. And If We made the good auditor then perhaps we can 
+   found some of zeroday security bugs. The automation is important in
+   the future research. If you have any good ideas then mail me.
+   Welcome! your ideas.
+
+
+5. Conclusion
+
+  Secure Coding is very important for researchers to learn many vulnerable
+  example codes.
+
+  I showed to youth about to that two sprintf and snprintf vulnerable 
+  examples in this article. Thanks.
+
+  Hack the planet!
+
+Greetings all researchers.
+
