@@ -70,6 +70,11 @@ Local File Inclusion vs Remote File Inclusion이라는 php 보안 버그인데, 
 [Common Weakness Enumeration 버그 컨셉 정리] 
 ([4])
 
+17. PHP 웹 파라메타 우회
+웹 파라메타를 GET으로 받거나, POST 또는 COOKIES라는 php 전역 변수로 받는 경우가 많습니다.
+이런 경우 잘못 섞여 혼용되면, GET으로 인가되어야만 하는 것을 COOKIES로도 인가가 되어서 GET으로만 시큐어 코드가 개발되는 경우 버그가 발생하기도
+합니다.
+
 
 [레퍼런스]
 1. 비초기화 메모리 버그 개념: https://www.blackhat.com/docs/eu-15/materials/eu-15-Chen-Hey-Man-Have-You-Forgotten-To-Initialize-Your-Memory-wp.pdf
